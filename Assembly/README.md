@@ -1,33 +1,53 @@
-# RISC-V Assembly Task Manager
+# 🧠 RISC-V Assembly Task Manager
 
-Bu proje, RISC-V Assembly dilinde geliştirilmiş bir görev ve süreç yöneticisi uygulamasıdır. RARS (RISC-V Assembler and Runtime Simulator) kullanılarak yazılmış ve çalıştırılabilir.
+**RISC-V Assembly Task Manager** is a task and process management application written entirely in **RISC-V Assembly**, designed to run on the [RARS (RISC-V Assembler and Runtime Simulator)](https://github.com/TheThirdOne/rars) environment. This project showcases low-level systems programming techniques by simulating core functionalities of a basic task manager.
 
-## Özellikler
+---
 
-- Süreç listesi görüntüleme
-- İsme göre süreç filtreleme
-- PID ile süreç bulma
-- Süreç sonlandırma
-- Görev zamanlama sistemi
-  - Tek seferlik görevler
-  - Aralıklı görevler
-  - Günlük görevler
+## 📸 Preview
 
-## Dosya Yapısı
+> _**Menu Interface:**_
 
-- `main.s`: Ana program ve menü işlevleri
-- `process_manager.s`: Süreç yönetimi işlevleri
-- `scheduler.s`: Görev zamanlama işlevleri
+![RISC-V Task Manager Menu](https://via.placeholder.com/600x200?text=RISC-V+Task+Manager+Menu)
 
-## Kurulum ve Çalıştırma
+---
 
-1. [RARS (RISC-V Assembler and Runtime Simulator)](https://github.com/TheThirdOne/rars) uygulamasını indirin.
-2. RARS'ı açın ve tüm `.s` dosyalarını yükleyin.
-3. "Assemble & Run" düğmesine tıklayarak programı çalıştırın.
+## 🚀 Features
 
-## Uygulama Menüsü
+- 🧾 **List all processes**  
+- 🔍 **Filter processes by name**  
+- 🔎 **Search processes by PID**  
+- ❌ **Terminate a process**  
+- ⏰ **Task scheduling system**, including:
+  - One-time tasks
+  - Interval-based tasks
+  - Daily recurring tasks
 
-```
+---
+
+## 📁 File Structure
+
+.
+├── main.s             # Main program with user interface and menu logic
+├── process_manager.s  # Handles simulated process list and operations
+├── scheduler.s        # Task scheduling logic and data handling
+
+
+---
+
+## 🛠️ Installation & Running
+
+1. Download and open **RARS**:  
+   👉 [RARS GitHub Repository](https://github.com/TheThirdOne/rars)
+
+2. Load all `.s` files (`main.s`, `process_manager.s`, `scheduler.s`) into RARS.
+
+3. Click the **"Assemble & Run"** button to start the program.
+
+---
+
+## 📟 Application Menu
+
 ==== RISC-V Task Manager ====
 1. List all processes
 2. Filter processes by name
@@ -35,47 +55,66 @@ Bu proje, RISC-V Assembly dilinde geliştirilmiş bir görev ve süreç yönetic
 4. Terminate a process
 5. Task scheduler
 0. Exit
-```
 
-## Görev Zamanlayıcı
+---
 
-Görev zamanlayıcı, aşağıdaki özelliklere sahiptir:
+## ⏳ Task Scheduler
 
-- Yeni görev ekleme
-- Görevleri listeleme
-- Görev silme
+The built-in task scheduler allows for management of simulated automated tasks.
 
-Her görev için şu bilgiler saklanır:
-- Komut (64 bayt)
-- Tip (Tek seferlik, Aralıklı, Günlük)
-- Yürütme zamanı
-- Aralık (saniye)
-- Aktif/Pasif durumu
+### 📋 Task Options:
+- Add a new task
+- List scheduled tasks
+- Delete existing tasks
 
-## Uygulama Mimarisi
+### 📦 Each task includes:
+- Command (64 bytes max)
+- Type: One-time / Interval / Daily
+- Execution time
+- Interval (in seconds)
+- Status (Active / Inactive)
 
-Bu uygulama modüler bir tasarıma sahiptir:
+> _Example Interface:_  
+![Task Scheduler](https://via.placeholder.com/600x200?text=Task+Scheduler+Simulation)
 
-1. Ana modül (`main.s`): Kullanıcı arayüzü ve ana menü
-2. Süreç yönetimi modülü (`process_manager.s`): Süreç listesi ve yönetimi
-3. Görev zamanlayıcı modülü (`scheduler.s`): Zamanlama işlevleri
+---
 
-## Teknik Detaylar
+## 🧱 Architecture
 
-- RISC-V Assembly dili kullanılmıştır
-- Fonksiyon çağrıları için standart ABI kuralları takip edilmiştir
-- Veri yapıları sabit boyutlu tamponlar kullanılarak uygulanmıştır
-- Süreç verileri (bu demo sürümünde) simüle edilmiştir
+This application follows a **modular design**:
 
-## Kısıtlamalar
+| Module | Description |
+|--------|-------------|
+| `main.s` | Handles the UI and main loop |
+| `process_manager.s` | Manages the process simulation and operations |
+| `scheduler.s` | Controls the task scheduling logic |
 
-- Bu uygulama simüle edilmiş süreçlerle çalışır, gerçek işletim sistemi süreçlerine erişimi yoktur
-- RARS simülatörü kısıtlamaları nedeniyle bazı sistem çağrıları taklit edilmiştir
+---
 
-## Katkıda Bulunanlar
+## ⚙️ Technical Notes
 
-- kappasutra - Proje geliştiricisi
+- Developed entirely in **RISC-V Assembly**
+- Uses **standard RISC-V ABI** for function calls
+- Data structures implemented with **fixed-size buffers**
+- **Simulated processes** (not real OS processes due to RARS limitations)
 
-## Lisans
+---
 
-MIT 
+## ⚠️ Limitations
+
+- This is a **simulation**; it does not interact with actual OS-level processes.
+- Due to **RARS constraints**, system calls are mocked or simplified.
+
+---
+
+## 🙋‍♂️ Author
+
+**kappasutra** – _Project Developer_  
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.  
+Feel free to fork, modify, and contribute!
+
